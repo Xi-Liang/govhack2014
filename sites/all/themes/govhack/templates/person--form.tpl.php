@@ -1,4 +1,5 @@
-
+<div id="formwrapper">
+<h2>This is me</h2>
 <div class="iconwrapper">
   <div id="femaleicon"></div>
 </div>
@@ -11,5 +12,6 @@
 
   <!--Print the rest of the form-->
   <div>
-<?php print drupal_render_children($form); ?>
+    <?php print drupal_render_children($form); ?>
   </div>
+</div>

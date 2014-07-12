@@ -64,6 +64,9 @@ h1, h2{
     float: none;
   }
 }
+#content{
+  padding: 0;
+}
 #footer{
   background-color: $footer-color;
   text-align: center;
@@ -75,8 +78,27 @@ h1, h2{
   display: none;
 }
 #block-block-4{
-  max-width: 520px;
-  margin: 10px auto 20px auto;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 10px 10px 20px 10px;
+  background-color: $footer-color;
+  p{
+    max-width: 480px;
+    margin: 10px auto;
+  }
+}
+#formwrapper{
+  position: relative;
+}
+.front h2{
+  font-size: 3em;
+  color: white;
+  background-color: $button-blue-hover;
+  width: 180px;
+  margin: -15px auto 30px auto;
+  padding: 4px;
+  line-height: 1em;
+  text-align: center;
 }
 #person-node-form{
   max-width: 400px;
@@ -190,25 +212,16 @@ input[type="submit"]{
     background-color: white;
   }
   #header{
-    background-color: white;
-    padding-bottom: 0;
+    //background-color: white;
+    //padding-bottom: 0;
     .header__site-link:link, .header__site-link:visited{
-      color: $button-blue;
+      //color: $button-blue;
     }
     .header__site-link:hover, .header__site-link:focus{
-      color: $button-blue-hover;
+      //color: $button-blue-hover;
     }
   }
   #person-node-form{
     border: none;
-  }
-  #block-block-4{
-    margin: 10px 20px;
-    padding: 10px 20px;
-    border-top: 2px solid $darkgrey;
-    border-bottom: 2px solid $darkgrey;
-    p{
-      margin: 5px 0;
-    }
   }
 }
