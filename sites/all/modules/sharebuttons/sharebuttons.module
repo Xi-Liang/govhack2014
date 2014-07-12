@@ -1,0 +1,30 @@
+<?php 
+/* Creates a share block */
+function sharebuttons_block_info() {
+  $blocks['shareicons'] = array(
+    'info' => t('Share buttons'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+/*
+ * Implementation of hook_theme().
+ */
+function sharebuttons_theme() {
+  return array(
+    'sharebuttons' => array('arguments' => array(), 'template' => 'sharebuttons')
+  );
+} 
+function sharebuttons_block_view($delta = '') {
+  $block = array();
+  $currpage = url(NULL, array('absolute' => TRUE));
+  switch($delta) {
+    case 'shareicons' :
+      $variables = array('url'=>$currpage); //do stuff here
+      $block['title'] = '<none>';
+      $block['content'] = theme('sharebuttons', $variables);
+      //$block['content'] = "Testing";
+      break;
+  }
+  return $block;
+}

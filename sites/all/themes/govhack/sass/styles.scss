@@ -23,3 +23,103 @@
 /* SMACSS theme rules */
 /* @import "theme-A"; */
 /* @import "theme-B"; */
+
+body{
+}
+a{
+  color: $link-blue;
+  &:hover{
+    text-decoration: none;
+  }
+}
+h1, h2{
+  font-family: $amatic;
+}
+.header__site-link:link,
+.header__site-link:visited,
+{
+  color: $button-blue;
+}
+#site-name{
+  font-size: 5em;
+  line-height: 1em;
+}
+.header__site-link:hover, .header__site-link:focus{
+  text-decoration: none;
+}
+#page{
+  width: 100%;
+  background-color: $page-color;
+}
+#header{
+  text-align: center;
+  padding: 10px 0 10px 0;
+  background-color: $header-color;
+  .header__name-and-slogan{
+    float: none;
+  }
+}
+#footer{
+  background-color: $footer-color;
+  text-align: center;
+}
+#main{
+  padding-top: 0;
+}
+.front h1#page-title{
+  display: none;
+}
+#block-block-4{
+  max-width: 520px;
+  margin: 10px auto 20px auto;
+}
+#person-node-form{
+  max-width: 400px;
+  border: 3px solid $footer-color;
+  background-color: white;
+  @include border-radius(10px);
+  margin: 0 auto 30px auto;
+  padding: 0 20px 20px 20px; 
+  #edit-actions{
+    text-align: center;
+  }
+}
+.region-bottom{
+  text-align: center;
+  overflow: hidden;
+  font-size: $base-font-size * 0.8;
+}
+input[type="submit"]{
+  color: white;
+  background-color: $button-blue;
+  font-family: $amatic;
+  font-size: 2.2em;
+  line-height: 1em;
+  padding: 6px 35px;
+  @include border-radius(8px);
+  border: none;
+  &:hover{
+    background-color: $button-blue-hover;
+  }
+}
+@media all and (max-width: 640px){
+  #page{
+    background-color: white;
+  }
+  #header{
+    background-color: white;
+    padding-bottom: 0;
+  }
+  #person-node-form{
+    border: none;
+  }
+  #block-block-4{
+    margin: 10px 20px;
+    padding: 10px 20px;
+    border-top: 2px solid $darkgrey;
+    border-bottom: 2px solid $darkgrey;
+    p{
+      margin: 5px 0;
+    }
+  }
+}

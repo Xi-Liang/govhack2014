@@ -16,7 +16,7 @@
 <head>
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
-
+  <link href='http://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
   <?php if ($default_mobile_metatags): ?>
     <meta name="MobileOptimized" content="width">
     <meta name="HandheldFriendly" content="true">

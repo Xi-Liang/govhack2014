@@ -1,0 +1,5 @@
+name = Share buttons
+description = Small module that provides share and email buttons
+core = 7.x
+
+stylesheets[all][] = style.css

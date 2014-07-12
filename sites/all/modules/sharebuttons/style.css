@@ -1,0 +1,41 @@
+#block-sharebuttons-shareicons{
+  width: 100%;
+  max-width: 480px;
+  margin: 20px auto;
+  overflow: hidden;
+}
+#fb-button,
+#email-button,
+#tweet-button{
+  width: 33.33333333%;
+  height: 76px;
+  float: left;
+}
+#tweet-button a,
+#email-button a,
+#fb-button a{
+  text-indent: -9999px;
+  width: 76px;
+  height: 76px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#tweet-button a{
+  background-image: url(twitter.png);
+}
+#email-button a{
+  background-image: url(email.png);
+}
+#fb-button a{
+  background-image: url(fb.png);
+}
+#tweet-button a:hover{
+  background-image: url(twitterhover.png);
+}
+#email-button a:hover{
+  background-image: url(emailhover.png);
+}
+#fb-button a:hover{
+  background-image: url(fbhover.png);
+}

@@ -130,3 +130,10 @@ function govhack_preprocess_block(&$variables, $hook) {
   //}
 }
 // */
+/* Changes the text of the 'save' button on the front page */
+function govhack_form_alter(&$form, &$form_state, $form_id){
+  if ($form_id == 'person_node_form'){
+    //drupal_set_message("<pre>".print_r($form,TRUE)."</pre>");
+    $form['actions']['submit']['#value'] = t('Show me');
+  }
+}

@@ -74,6 +74,7 @@ $h6-font-size: 0.67 * $base-font-size;
 $times-new-roman: "Times New Roman", Times, Georgia, "DejaVu Serif", serif;
 $times:           Times, "Times New Roman", Georgia, "DejaVu Serif", serif;
 $georgia:         Georgia, "Times New Roman", "DejaVu Serif", serif;
+$amatic:          'Amatic SC', cursive;
 
 $verdana:         Verdana, Tahoma, "DejaVu Sans", sans-serif;
 $tahoma:          Tahoma, Verdana, "DejaVu Sans", sans-serif;
@@ -93,6 +94,15 @@ $font-monospace:   $courier;
 //
 // Colors, etc.
 //
+$background-color: #444;
+$footer-color: #e4e9ee;
+$button-blue: #2b82d9;
+$button-blue-hover: #0c4c8c;
+$link-blue: #2b82d9;
+$link-hover: #a7e07c;
+$header-color: #e4e9ee;
+$page-color: #f8f8f8;
+$darkgrey: #8c8c8c;
 
 // The amount lists, blockquotes and comments are indented.
 $indent-amount: 30px;
