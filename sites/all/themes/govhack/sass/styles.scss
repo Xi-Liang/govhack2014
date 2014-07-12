@@ -38,7 +38,7 @@ h1, h2{
 .header__site-link:link,
 .header__site-link:visited,
 {
-  color: $button-blue;
+  color: white;
 }
 #site-name{
   font-size: 5em;
@@ -46,15 +46,18 @@ h1, h2{
 }
 .header__site-link:hover, .header__site-link:focus{
   text-decoration: none;
+  color: $footer-color;
 }
 #page{
   width: 100%;
-  background-color: $page-color;
+  //background-color: $page-color;
+  background-color: white;
 }
 #header{
   text-align: center;
   padding: 10px 0 10px 0;
   background-color: $header-color;
+  background-color: $button-blue;
   .header__name-and-slogan{
     float: none;
   }
@@ -75,9 +78,9 @@ h1, h2{
 }
 #person-node-form{
   max-width: 400px;
-  border: 3px solid $footer-color;
+  //border: 1px solid $footer-color;
   background-color: white;
-  @include border-radius(10px);
+  //@include border-radius(10px);
   margin: 0 auto 30px auto;
   padding: 0 20px 20px 20px; 
   #edit-actions{
@@ -88,6 +91,7 @@ h1, h2{
   text-align: center;
   overflow: hidden;
   font-size: $base-font-size * 0.8;
+  background-color: $page-color;
 }
 input[type="submit"]{
   color: white;
@@ -95,13 +99,50 @@ input[type="submit"]{
   font-family: $amatic;
   font-size: 2.2em;
   line-height: 1em;
-  padding: 6px 35px;
+  padding: 9px 35px;
+  font-weight: bold;
   @include border-radius(8px);
   border: none;
   &:hover{
     background-color: $button-blue-hover;
   }
 }
+.view-mode-teaser{
+  width: 220px;
+  float: left;
+  .field{
+    display: inline;
+  }
+  .field-name-field-gender{
+    float: left;
+    margin-right: 20px;
+  }
+}
+.compact-form-label{
+  top: 12px;
+  left: 15px;
+  color: #bbb;
+  font-weight: normal;
+  font-size: $h2-font-size;
+}
+.form-field-name-field-age,
+.form-field-name-field-postcode{
+  width: 40%;
+  margin: 5%;
+  float: left;
+  overflow: hidden;
+  margin-bottom: 20px;
+  input{
+    padding: 10px;
+    font-size: $h2-font-size;
+    border: 2px solid $darkgrey;
+    @include border-radius(5px);
+  }
+}
+.vertical-tabs{
+  display: none;
+}
+
 @media all and (max-width: 640px){
   #page{
     background-color: white;
@@ -109,6 +150,12 @@ input[type="submit"]{
   #header{
     background-color: white;
     padding-bottom: 0;
+    .header__site-link:link, .header__site-link:visited{
+      color: $button-blue;
+    }
+    .header__site-link:hover, .header__site-link:focus{
+      color: $button-blue-hover;
+    }
   }
   #person-node-form{
     border: none;

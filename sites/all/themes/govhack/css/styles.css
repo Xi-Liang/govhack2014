@@ -1809,7 +1809,7 @@ h1, h2 {
 /* line 40, ../sass/styles.scss */
 .header__site-link:link,
 .header__site-link:visited {
-  color: #2b82d9;
+  color: white;
 }
 
 /* line 43, ../sass/styles.scss */
@@ -1821,80 +1821,78 @@ h1, h2 {
 /* line 47, ../sass/styles.scss */
 .header__site-link:hover, .header__site-link:focus {
   text-decoration: none;
+  color: #e4e9ee;
 }
 
-/* line 50, ../sass/styles.scss */
+/* line 51, ../sass/styles.scss */
 #page {
   width: 100%;
-  background-color: #f8f8f8;
+  background-color: white;
 }
 
-/* line 54, ../sass/styles.scss */
+/* line 56, ../sass/styles.scss */
 #header {
   text-align: center;
   padding: 10px 0 10px 0;
   background-color: #e4e9ee;
+  background-color: #2b82d9;
 }
-/* line 58, ../sass/styles.scss */
+/* line 61, ../sass/styles.scss */
 #header .header__name-and-slogan {
   float: none;
 }
 
-/* line 62, ../sass/styles.scss */
+/* line 65, ../sass/styles.scss */
 #footer {
   background-color: #e4e9ee;
   text-align: center;
 }
 
-/* line 66, ../sass/styles.scss */
+/* line 69, ../sass/styles.scss */
 #main {
   padding-top: 0;
 }
 
-/* line 69, ../sass/styles.scss */
+/* line 72, ../sass/styles.scss */
 .front h1#page-title {
   display: none;
 }
 
-/* line 72, ../sass/styles.scss */
+/* line 75, ../sass/styles.scss */
 #block-block-4 {
   max-width: 520px;
   margin: 10px auto 20px auto;
 }
 
-/* line 76, ../sass/styles.scss */
+/* line 79, ../sass/styles.scss */
 #person-node-form {
   max-width: 400px;
-  border: 3px solid #e4e9ee;
   background-color: white;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  border-radius: 10px;
   margin: 0 auto 30px auto;
   padding: 0 20px 20px 20px;
 }
-/* line 83, ../sass/styles.scss */
+/* line 86, ../sass/styles.scss */
 #person-node-form #edit-actions {
   text-align: center;
 }
 
-/* line 87, ../sass/styles.scss */
+/* line 90, ../sass/styles.scss */
 .region-bottom {
   text-align: center;
   overflow: hidden;
   font-size: 12.8px;
+  background-color: #f8f8f8;
 }
 
-/* line 92, ../sass/styles.scss */
+/* line 96, ../sass/styles.scss */
 input[type="submit"] {
   color: white;
   background-color: #2b82d9;
   font-family: "Amatic SC", cursive;
   font-size: 2.2em;
   line-height: 1em;
-  padding: 6px 35px;
+  padding: 9px 35px;
+  font-weight: bold;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
@@ -1902,36 +1900,95 @@ input[type="submit"] {
   border-radius: 8px;
   border: none;
 }
-/* line 101, ../sass/styles.scss */
+/* line 106, ../sass/styles.scss */
 input[type="submit"]:hover {
   background-color: #0c4c8c;
 }
 
+/* line 110, ../sass/styles.scss */
+.view-mode-teaser {
+  width: 220px;
+  float: left;
+}
+/* line 113, ../sass/styles.scss */
+.view-mode-teaser .field {
+  display: inline;
+}
+/* line 116, ../sass/styles.scss */
+.view-mode-teaser .field-name-field-gender {
+  float: left;
+  margin-right: 20px;
+}
+
+/* line 121, ../sass/styles.scss */
+.compact-form-label {
+  top: 12px;
+  left: 15px;
+  color: #bbb;
+  font-weight: normal;
+  font-size: 24px;
+}
+
+/* line 129, ../sass/styles.scss */
+.form-field-name-field-age,
+.form-field-name-field-postcode {
+  width: 40%;
+  margin: 5%;
+  float: left;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+/* line 135, ../sass/styles.scss */
+.form-field-name-field-age input,
+.form-field-name-field-postcode input {
+  padding: 10px;
+  font-size: 24px;
+  border: 2px solid #8c8c8c;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 142, ../sass/styles.scss */
+.vertical-tabs {
+  display: none;
+}
+
 @media all and (max-width: 640px) {
-  /* line 106, ../sass/styles.scss */
+  /* line 147, ../sass/styles.scss */
   #page {
     background-color: white;
   }
 
-  /* line 109, ../sass/styles.scss */
+  /* line 150, ../sass/styles.scss */
   #header {
     background-color: white;
     padding-bottom: 0;
   }
+  /* line 153, ../sass/styles.scss */
+  #header .header__site-link:link, #header .header__site-link:visited {
+    color: #2b82d9;
+  }
+  /* line 156, ../sass/styles.scss */
+  #header .header__site-link:hover, #header .header__site-link:focus {
+    color: #0c4c8c;
+  }
 
-  /* line 113, ../sass/styles.scss */
+  /* line 160, ../sass/styles.scss */
   #person-node-form {
     border: none;
   }
 
-  /* line 116, ../sass/styles.scss */
+  /* line 163, ../sass/styles.scss */
   #block-block-4 {
     margin: 10px 20px;
     padding: 10px 20px;
     border-top: 2px solid #8c8c8c;
     border-bottom: 2px solid #8c8c8c;
   }
-  /* line 121, ../sass/styles.scss */
+  /* line 168, ../sass/styles.scss */
   #block-block-4 p {
     margin: 5px 0;
   }
