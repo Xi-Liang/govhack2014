@@ -137,3 +137,16 @@ function govhack_form_alter(&$form, &$form_state, $form_id){
     $form['actions']['submit']['#value'] = t('Show me');
   }
 }
+
+/* Adds a tpl for the front page */
+function govhack_theme() {
+  return array(
+    'person_node_form' => array(
+      'arguments' => array(
+          'form' => NULL,
+      ),
+      'template' => 'templates/person--form', // this must be the name of the file you created. Our file was title "article--edit.tpl.php" so we use article--edit
+      'render element' => 'form',
+    ),
+  );
+}

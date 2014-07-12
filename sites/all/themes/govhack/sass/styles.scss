@@ -27,9 +27,11 @@
 body{
 }
 a{
+  text-decoration: none;
   color: $link-blue;
   &:hover{
-    text-decoration: none;
+    text-decoration: underline;
+    color: $button-blue-hover;
   }
 }
 h1, h2{
@@ -86,6 +88,9 @@ h1, h2{
   #edit-actions{
     text-align: center;
   }
+  .form-item{
+    margin-top: 0;
+  }
 }
 .region-bottom{
   text-align: center;
@@ -141,6 +146,43 @@ input[type="submit"]{
 }
 .vertical-tabs{
   display: none;
+}
+.iconwrapper{
+  width: 50%;
+  float: left;
+}
+#maleicon, #femaleicon{
+  height: 195px;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#maleicon{
+  background: transparent url(../images/maleunselected.png) 0 0 no-repeat;
+  &.selected{
+    background-image: url(../images/male.png);
+  }
+}
+#femaleicon{
+  background: transparent url(../images/femaleunselected.png) 0 0 no-repeat;
+  &.selected{
+    background-image: url(../images/female.png);
+  }
+}
+.form-item-field-gender-und{
+  margin: 10px 0 10px 0 !important;
+  label[for="edit-field-gender-und"]{
+    display: none;
+  }
+  .form-item{
+    width: 50%;
+    float: left;
+    font-size: $h2-font-size;
+    color: $darkgrey;
+    input{
+      margin-left: 40px;
+    }
+  }
 }
 
 @media all and (max-width: 640px){

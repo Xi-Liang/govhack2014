@@ -1,26 +1,31 @@
-/**
- * @file
- * A JavaScript file for the theme.
- *
- * In order for this JavaScript to be loaded on pages, see the instructions in
- * the README.txt next to this file.
- */
+jQuery(document).ready(function(){
 
-// JavaScript should be made compatible with libraries other than jQuery by
-// wrapping it with an "anonymous closure". See:
-// - https://drupal.org/node/1446420
-// - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
-(function ($, Drupal, window, document, undefined) {
-
-
-// To understand behaviors, see https://drupal.org/node/756722#behaviors
-Drupal.behaviors.my_custom_behavior = {
-  attach: function(context, settings) {
-
-    // Place your code here.
-
-  }
-};
-
-
-})(jQuery, Drupal, this, this.document);
+jQuery('#edit-field-gender-und-2').change(
+    function(){
+        if (jQuery(this).is(':checked') && jQuery(this).val() == '2') {
+          jQuery('#femaleicon').addClass('selected');
+          jQuery('#maleicon').removeClass('selected');
+        }
+    });
+jQuery('#edit-field-gender-und-1').change(
+    function(){
+        if (jQuery(this).is(':checked') && jQuery(this).val() == '1') {
+          jQuery('#maleicon').addClass('selected');
+          jQuery('#femaleicon').removeClass('selected');
+        }
+    });
+jQuery('#maleicon').click(
+    function(){
+          jQuery('#maleicon').addClass('selected');
+          jQuery('#femaleicon').removeClass('selected');
+          jQuery( "#edit-field-gender-und-1" ).attr( "checked", true );
+          jQuery( "#edit-field-gender-und-2" ).attr( "checked", false );
+    });
+jQuery('#femaleicon').click(
+    function(){
+          jQuery('#femaleicon').addClass('selected');
+          jQuery('#maleicon').removeClass('selected');
+          jQuery( "#edit-field-gender-und-2" ).attr( "checked", true );
+          jQuery( "#edit-field-gender-und-1" ).attr( "checked", false );
+    });
+});
