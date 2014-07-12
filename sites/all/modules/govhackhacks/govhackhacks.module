@@ -1,0 +1,33 @@
+<?php 
+/* Creates a block */
+function govhackhacks_block_info() {
+  $blocks['datablock'] = array(
+    'info' => t('Govhack Comparison data block'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+
+function govhackhacks_block_view($delta = '') {
+  $block = array();
+  $currpage = url(NULL, array('absolute' => TRUE));
+  switch($delta) {
+    case 'datablock' :
+      $block['title'] = '<none>';
+      $block['content'] = "<h2>Hello! Just testing!!!</h2>";
+      break;
+  }
+  return $block;
+}
+
+function govhackhacks_node_presave($node){
+  $age = $node->field_age[LANGUAGE_NONE][0]['value'];
+  //drupal_set_message("Hook node presave ".$node->field_age[LANGUAGE_NONE][0]['value']);
+  if ($age >= 18 && $age <= 24) $node->field_age_range[LANGUAGE_NONE][0]['tid'] = 3;
+  if ($age >= 25 && $age <= 34) $node->field_age_range[LANGUAGE_NONE][0]['tid'] = 4;
+  if ($age >= 35 && $age <= 44) $node->field_age_range[LANGUAGE_NONE][0]['tid'] = 5;
+  if ($age >= 45 && $age <= 54) $node->field_age_range[LANGUAGE_NONE][0]['tid'] = 6;
+  if ($age >= 55 && $age <= 64) $node->field_age_range[LANGUAGE_NONE][0]['tid'] = 7;
+  if ($age >= 65 && $age <= 74) $node->field_age_range[LANGUAGE_NONE][0]['tid'] = 8;
+  if ($age >= 75 && $age <= 120) $node->field_age_range[LANGUAGE_NONE][0]['tid'] = 9;
+}

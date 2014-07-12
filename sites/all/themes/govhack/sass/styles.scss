@@ -149,6 +149,11 @@ input[type="submit"]{
       font-weight: bold;
     }
   }
+  .field-name-field-postcode{
+    font-size: $h2-font-size;
+    margin: 10px 0;
+    display: block !important;
+  }
   .field{
     display: inline;
   }
