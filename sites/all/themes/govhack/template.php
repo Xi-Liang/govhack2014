@@ -135,6 +135,9 @@ function govhack_form_alter(&$form, &$form_state, $form_id){
   if ($form_id == 'person_node_form'){
     //drupal_set_message("<pre>".print_r($form,TRUE)."</pre>");
     $form['actions']['submit']['#value'] = t('Show me');
+    unset($form['field_age_range']);
+    unset($form['field_lga']);
+    unset($form['field_1st_cause_of_death']);
   }
 }
 

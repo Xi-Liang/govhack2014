@@ -52,7 +52,6 @@ h1, h2{
 }
 #page{
   width: 100%;
-  //background-color: $page-color;
   background-color: white;
 }
 #header{
@@ -80,11 +79,12 @@ h1, h2{
 #block-block-4{
   width: 100%;
   margin-bottom: 0;
-  padding: 10px 10px 20px 10px;
+  padding: 10px 0px 20px 0px;
   background-color: $footer-color;
   p{
     max-width: 480px;
     margin: 10px auto;
+    padding: 0 10px;
   }
 }
 #formwrapper{
@@ -102,9 +102,7 @@ h1, h2{
 }
 #person-node-form{
   max-width: 400px;
-  //border: 1px solid $footer-color;
-  background-color: white;
-  //@include border-radius(10px);
+  background-color: transparent;
   margin: 0 auto 30px auto;
   padding: 0 20px 20px 20px; 
   #edit-actions{
@@ -137,6 +135,20 @@ input[type="submit"]{
 .view-mode-teaser{
   width: 220px;
   float: left;
+  padding: 10px;
+  margin: 20px;
+  background-color: white;
+  border: 1px solid $footer-color;
+  @include border-radius(5px);
+  label{
+    font-weight: normal;
+  }
+  .field-name-field-age{
+    .field-item{
+      font-size: $h1-font-size;
+      font-weight: bold;
+    }
+  }
   .field{
     display: inline;
   }
@@ -150,18 +162,17 @@ input[type="submit"]{
   left: 15px;
   color: #bbb;
   font-weight: normal;
-  font-size: $h2-font-size;
+  font-size: 20px;
 }
 .form-field-name-field-age,
 .form-field-name-field-postcode{
   width: 40%;
-  margin: 5%;
+  margin: 20px 5%;
   float: left;
   overflow: hidden;
-  margin-bottom: 20px;
   input{
     padding: 10px;
-    font-size: $h2-font-size;
+    font-size: 20px;
     border: 2px solid $darkgrey;
     @include border-radius(5px);
   }
@@ -191,6 +202,22 @@ input[type="submit"]{
     background-image: url(../images/female.png);
   }
 }
+#edit-field-indigenous{
+  clear: both;
+  color: $darkgrey;
+  font-size: 20px;
+  label{
+    font-weight: normal;
+  }
+  .form-type-radio{
+    width: 50%;
+    text-align: center;
+    float: left;
+    margin-top: 10px;
+  }
+  margin-bottom: 20px;
+  overflow: hidden;
+}
 .form-item-field-gender-und{
   margin: 10px 0 10px 0 !important;
   label[for="edit-field-gender-und"]{
@@ -206,7 +233,20 @@ input[type="submit"]{
     }
   }
 }
-
+.page-everyone{
+  #main{
+    background-color: $page-color;
+  }
+  #page-title{
+    display: none;
+  }
+}
+.page-node{
+  #page-title{
+    text-align: center;
+    font-family: $base-font-family;
+  }
+}
 @media all and (max-width: 640px){
   #page{
     background-color: white;
