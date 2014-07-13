@@ -2356,9 +2356,10 @@ a.calltoaction:hover,
   .page-node .group-left {
     border: none;
     padding: 0;
+    margin-left: 5px;
   }
 
-  /* line 449, ../sass/styles.scss */
+  /* line 450, ../sass/styles.scss */
   .page-node .group-left {
     padding-top: 10px;
   }
