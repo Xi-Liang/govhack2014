@@ -23,7 +23,8 @@
     <meta name="viewport" content="width=device-width">
   <?php endif; ?>
   <meta http-equiv="cleartype" content="on">
-
+  <meta property="og:title" content="Show the gap" />
+  <meta property="og:description" content="What does your Gap look like? See how much needs work to improve quality of life for Indigenous Australians." />
   <?php print $styles; ?>
   <?php print $scripts; ?>
   <?php if ($add_html5_shim and !$add_respond_js): ?>

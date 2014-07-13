@@ -46,6 +46,11 @@ h1, h2{
   font-size: 5em;
   line-height: 1em;
 }
+#site-slogan{
+  color: white;
+  font-style: italic;
+  font-size: 80%;
+}
 .header__site-link:hover, .header__site-link:focus{
   text-decoration: none;
   color: $footer-color;
@@ -69,6 +74,7 @@ h1, h2{
 #footer{
   background-color: $footer-color;
   text-align: center;
+  padding: 0;
 }
 #main{
   padding-top: 0;
@@ -85,6 +91,7 @@ h1, h2{
     max-width: 480px;
     margin: 10px auto;
     padding: 0 10px;
+    text-align: center;
   }
 }
 #formwrapper{
@@ -112,11 +119,28 @@ h1, h2{
     margin-top: 0;
   }
 }
+#block-block-5,
+#block-views-counter-seen-the-gap-block{
+  .counter-title{
+    font-family: $amatic;
+    font-size: 40px;
+    display: block;
+    line-height: 1em;
+  }
+  background-color: #262626;
+  padding: 10px 0;
+  color: white;
+}
 .region-bottom{
   text-align: center;
   overflow: hidden;
+  color: white;
   font-size: $base-font-size * 0.8;
-  background-color: $page-color;
+  background-color: $darkgrey;
+  a{
+    color: white;
+    text-decoration: underline;
+  }
 }
 input[type="submit"]{
   color: black;
@@ -129,11 +153,35 @@ input[type="submit"]{
   @include border-radius(8px);
   border: none;
   &:hover{
-    background-color: $button-blue-hover;
+    background-color: $button-orange-hover;
+    color: white;
   }
 }
+.counter-link,
+a.calltoaction,
+.calltoaction{
+  font-family: $amatic;
+  text-align: center;
+  @include border-radius(5px);
+  background-color: $calltoaction;
+  color: black;
+  padding: 2px 10px;
+  font-size: 24px;
+  &:hover{
+    text-decoration: none;
+    background-color: $button-orange-hover;
+    color: white;
+  }
+}
+.counter-link{
+  font-size: 30px;
+  display: block;
+  width: 200px;
+  padding: 6px 10px;
+  margin: 10px auto;
+}
 .view-mode-teaser{
-  width: 220px;
+  width: 200px;
   float: left;
   padding: 10px;
   margin: 20px;
@@ -143,8 +191,27 @@ input[type="submit"]{
   label{
     font-weight: normal;
   }
+  .vocabulary-gender{
+    margin-left: 20px;
+  }
   .field-name-node-link{
-    font-size: 80%;
+    font-size: 24px;
+    padding: 4px;
+    display: block !important;
+    font-family: $amatic;
+    text-align: center;
+    @include border-radius(5px);
+    background-color: $calltoaction;
+    &:hover{
+      background-color: $button-orange-hover;
+    }
+    a{
+      color: black;
+      &:hover{
+        color: white;
+        text-decoration: none;
+      }
+    }
   }
   .field-name-field-age{
     .field-item{
@@ -258,20 +325,37 @@ input[type="submit"]{
     background-color: $page-color;
   }
   .group-left{
-    margin: 20px;
-    width: 170px;
-    height: 170px;
+    width: 130px;
+    height: 130px;
     padding: 10px;
     background-color: white;
     border: 10px solid $calltoaction;
-    @include border-radius(100px);
+    @include border-radius(90px);
     .field-name-field-gender{
       float: left;
       margin-left: 20px;
+      margin-top: 10px;
     }
     h2{
       font-size: 3em;
-      margin: 20px 0 0 0;
+      margin: 0;
+    }
+  }
+  .node-person{
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .group-middle{
+    padding-top: 50px;
+    width: 140px;
+    text-align: center;
+  }
+  .group-right{
+    padding-top: 30px;
+    width: 170px;
+    float: left;
+    .field-name-field-gender{
+      float: left;
     }
   }
   .resultwrapper{
@@ -313,5 +397,18 @@ input[type="submit"]{
   }
   #person-node-form{
     border: none;
+  }
+}
+@media all and (max-width: 480px){
+  .group-middle{
+    display: none;
+  }
+  .group-right{
+    float: right !important;
+  }
+  .resultwrapper{
+    border: none !important;
+    @include border-radius(0);
+    padding-bottom: 10px;
   }
 }
