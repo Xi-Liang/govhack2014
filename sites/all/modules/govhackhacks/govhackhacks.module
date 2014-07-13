@@ -92,61 +92,78 @@ function govhackhacks_showresults(){
 
   $final_answers = $answers->fetchObject();
   $your_final_answers = $your_answers->fetchObject();
+  if ($gender === 'M') {
+      $opposite = 'Him :';
+  } else {
+      $opposite = 'Her :';
+  }
 
   $markup .= "<h1>As a $age year old $gendertext in $postcode</h1>";
 
   $markup .= '<div class="resultwrapper"><h2>How long have you got</h2>';
   $markup .= '<p>You\'re likely to live to the ripe old age of</p>';
-  // content here
-  $markup .= 'Yours: '.$your_final_answers->LifeExpectancy . " </br> </br>";
-  $markup .= $final_answers->LifeExpectancy;
+
+  $ages = round($your_final_answers->LifeExpectancy) - round($final_answers->LifeExpectancy);
+  $agediff = abs($ages);
+
+  $markup .= "The gap is $agediff </br>";
+  $markup .= 'You: '.round($your_final_answers->LifeExpectancy) . " </br> </br>";
+  $markup .= "$opposite ". round($final_answers->LifeExpectancy);
   $markup .= '</div>';
 
   $markup .= '<div class="resultwrapper"><h2>Kicking the bucket</h2>';
   $markup .= '<p>What\'s likely to be your cause of death</p>';
   // content here
-  $markup .= 'Yours: '.$your_final_answers->CauseDeathOne . " </br> </br>";;
-  $markup .= $final_answers->CauseDeathOne;
+  $markup .= 'You: '.$your_final_answers->CauseDeathOne . " </br> </br>";
+  $markup .= "$opposite ". $final_answers->CauseDeathOne;
   $markup .= '</div>';
-
 
   $markup .= '<div class="resultwrapper"><h2>Heavy news</h2>';
   $markup .= '<p>Are you likely to be obese?</p>';
   // content here
-  $markup .= 'Yours: '.$your_final_answers->Overweight . " </br> </br>";;
-  $markup .= $final_answers->Overweight;
+
+      $times = $your_final_answers->Overweight/$final_answers->Overweight;
+      $number_times = round($times,1);
+      if ($number_times > 5) {
+          $markup .= "You are $number_times % more likely to be obese </br> </br> than her/his </br>";
+      } else {
+          $markup .= "You two are almost the same </br>";
+      }
+
+  $markup .= 'You: '.$your_final_answers->Overweight . " </br> </br>";
+  $markup .= "$opposite ". $final_answers->Overweight;
   $markup .= '</div>';
 
 
   $markup .= '<div class="resultwrapper"><h2>Work, work, work</h2>';
   $markup .= '<p>Are you likely to be unemployed?</p>';
   // content here
-  $markup .= 'Yours: '.$your_final_answers->NoJob . " </br> </br>";;
-  $markup .= $final_answers->NoJob;
+  $markup .= 'You: '.$your_final_answers->NoJob . " </br> </br>";
+  $markup .= "$opposite ". $final_answers->NoJob;
   $markup .= '</div>';
 
 
   $markup .= '<div class="resultwrapper"><h2>About that drink</h2>';
   $markup .= '<p>Are you at risk of being alcoholic?</p>';
   // content here
-  $markup .= 'Yours: '.$your_final_answers->HighRiskDrinker . " </br> </br>";;
-  $markup .= $final_answers->HighRiskDrinker;
+  $markup .= 'You: '.$your_final_answers->HighRiskDrinker . " </br> </br>";
+  $markup .= "$opposite ".$final_answers->HighRiskDrinker;
   $markup .= '</div>';
 
 
   $markup .= '<div class="resultwrapper"><h2>What\'s bad for you</h2>';
   $markup .= '<p>Are you likely to have drug or alcohol problems?</p>';
   // content here
-  $markup .= 'Yours: '.$your_final_answers->AlcoholDrug . " </br> </br>";;
-  $markup .= $final_answers->AlcoholDrug;
+  $markup .= 'You: '.$your_final_answers->AlcoholDrug . " </br> </br>";
+  $markup .= "$opposite ".$final_answers->AlcoholDrug;
   $markup .= '</div>';
 
 
   $markup .= '<div class="resultwrapper"><h2>Stay out of trouble</h2>';
   $markup .= '<p>Are you likely to be in trouble with the police?</p>';
   // content here
-  $markup .= 'Yours: '.$your_final_answers->TroublePolice . " </br> </br>";;
-  $markup .= $final_answers->TroublePolice;
+  $markup .= 'You: '.$your_final_answers->TroublePolice . " </br> </br>";
+  $markup .= "$opposite ".$final_answers->TroublePolice;
   $markup .= '</div>';
 
 $markup .= 
