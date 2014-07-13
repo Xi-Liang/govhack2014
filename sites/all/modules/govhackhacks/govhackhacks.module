@@ -14,15 +14,16 @@ function govhackhacks_block_view($delta = '') {
   switch($delta) {
     case 'datablock' :
       $block['title'] = '<none>';
-      $block['content'] = "<h2>Hello! Just testing!!!</h2>";
+      $block['content'] = govhackhacks_showresults();
       break;
   }
   return $block;
 }
 
+/* probably won't need this function but whatever, here it is anyway
+   updates the other fields when a person is updated */
 function govhackhacks_node_presave($node){
   $age = $node->field_age[LANGUAGE_NONE][0]['value'];
-  //drupal_set_message("Hook node presave ".$node->field_age[LANGUAGE_NONE][0]['value']);
   if ($age >= 18 && $age <= 24) $node->field_age_range[LANGUAGE_NONE][0]['tid'] = 3;
   if ($age >= 25 && $age <= 34) $node->field_age_range[LANGUAGE_NONE][0]['tid'] = 4;
   if ($age >= 35 && $age <= 44) $node->field_age_range[LANGUAGE_NONE][0]['tid'] = 5;
@@ -30,4 +31,63 @@ function govhackhacks_node_presave($node){
   if ($age >= 55 && $age <= 64) $node->field_age_range[LANGUAGE_NONE][0]['tid'] = 7;
   if ($age >= 65 && $age <= 74) $node->field_age_range[LANGUAGE_NONE][0]['tid'] = 8;
   if ($age >= 75 && $age <= 120) $node->field_age_range[LANGUAGE_NONE][0]['tid'] = 9;
+}
+
+/* Function that does all the actual stuff */
+function govhackhacks_showresults(){
+  $markup = '';
+  $node = menu_get_object();
+  $age = $node->field_age[LANGUAGE_NONE][0]['value'];
+  if ($node->field_gender[LANGUAGE_NONE][0]['tid'] == 1) $gender = 'M'; // hardcoded TIDs
+  if ($node->field_gender[LANGUAGE_NONE][0]['tid'] == 2) $gender = 'F';
+  if ($node->field_indigenous[LANGUAGE_NONE][0]['value'] == 0) $indigenous = 'N';
+  if ($node->field_indigenous[LANGUAGE_NONE][0]['value'] == 1) $indigenous = 'Y';
+  // need to convert the postcode to LGA
+
+  // wrap each set of results up in a div with a title
+  
+
+  $markup .= '<div class="resultwrapper"><h2>How long have you got</h2>';
+  $markup .= '<p>You\'re likely to live to the ripe old age of</p>';
+  // content here
+  $markup .= '</div>';
+
+
+  $markup .= '<div class="resultwrapper"><h2>Kicking the bucket</h2>';
+  $markup .= '<p>What\'s likely to be your cause of death</p>';
+  // content here
+  $markup .= '</div>';
+
+
+  $markup .= '<div class="resultwrapper"><h2>Heavy news</h2>';
+  $markup .= '<p>Are you likely to be obese?</p>';
+  // content here
+  $markup .= '</div>';
+
+
+  $markup .= '<div class="resultwrapper"><h2>Work, work, work</h2>';
+  $markup .= '<p>Are you likely to be unemployed?</p>';
+  // content here
+  $markup .= '</div>';
+
+
+  $markup .= '<div class="resultwrapper"><h2>About that drink</h2>';
+  $markup .= '<p>Are you at risk of being alcoholic?</p>';
+  // content here
+  $markup .= '</div>';
+
+
+  $markup .= '<div class="resultwrapper"><h2>What\'s bad for you</h2>';
+  $markup .= '<p>Are you likely to have drug or alcohol problems?</p>';
+  // content here
+  $markup .= '</div>';
+
+
+  $markup .= '<div class="resultwrapper"><h2>Stay out of trouble</h2>';
+  $markup .= '<p>Are you likely to be in trouble with the police?</p>';
+  // content here
+  $markup .= '</div>';
+
+
+  return $markup;
 }

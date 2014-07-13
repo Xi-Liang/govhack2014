@@ -119,8 +119,8 @@ h1, h2{
   background-color: $page-color;
 }
 input[type="submit"]{
-  color: white;
-  background-color: $button-blue;
+  color: black;
+  background-color: $calltoaction;
   font-family: $amatic;
   font-size: 2.2em;
   line-height: 1em;
@@ -142,6 +142,9 @@ input[type="submit"]{
   @include border-radius(5px);
   label{
     font-weight: normal;
+  }
+  .field-name-node-link{
+    font-size: 80%;
   }
   .field-name-field-age{
     .field-item{
@@ -250,6 +253,48 @@ input[type="submit"]{
   #page-title{
     text-align: center;
     font-family: $base-font-family;
+  }
+  #main, #page{
+    background-color: $page-color;
+  }
+  .group-left{
+    margin: 20px;
+    width: 170px;
+    height: 170px;
+    padding: 10px;
+    background-color: white;
+    border: 10px solid $calltoaction;
+    @include border-radius(100px);
+    .field-name-field-gender{
+      float: left;
+      margin-left: 20px;
+    }
+    h2{
+      font-size: 3em;
+      margin: 20px 0 0 0;
+    }
+  }
+  .resultwrapper{
+    max-width: 480px;
+    background-color: white;
+    border: 1px solid $footer-color;
+    @include border-radius(5px);
+    margin: 20px auto;
+    h2{
+      line-height: 1em;
+      font-size: 26px;
+      background-color: $button-blue-hover;
+      color: white;
+      text-align: center;
+      padding: 6px 30px;
+      width: 160px;
+      margin: -10px auto 10px auto;
+    }
+    p{
+      text-align: center;
+      color: $darkgrey;
+      margin: 10px 0;
+    }
   }
 }
 @media all and (max-width: 640px){
