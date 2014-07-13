@@ -2340,4 +2340,26 @@ a.calltoaction:hover,
     border-radius: 0;
     padding-bottom: 10px;
   }
+
+  /* line 438, ../sass/styles.scss */
+  .form-item-field-gender-und .form-item input {
+    margin-left: 10px;
+  }
+
+  /* line 441, ../sass/styles.scss */
+  .form-field-name-field-age, .form-field-name-field-postcode {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  /* line 445, ../sass/styles.scss */
+  .page-node .group-left {
+    border: none;
+    padding: 0;
+  }
+
+  /* line 449, ../sass/styles.scss */
+  .page-node .group-left {
+    padding-top: 10px;
+  }
 }

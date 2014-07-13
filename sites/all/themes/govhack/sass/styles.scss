@@ -435,4 +435,18 @@ a.calltoaction,
     @include border-radius(0);
     padding-bottom: 10px;
   }
+  .form-item-field-gender-und .form-item input{
+    margin-left: 10px;
+  }
+  .form-field-name-field-age, .form-field-name-field-postcode{
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .page-node .group-left{
+    border: none;
+    padding: 0;
+  }
+  .page-node .group-left{
+    padding-top: 10px;
+  }
 }
