@@ -76,8 +76,8 @@ function govhackhacks_showresults(){
                  AlcoholDrug, TroublePolice FROM showthegap_table
                  INNER JOIN showthegap_lgaTable ON
                  showthegap_lgaTable.Lga_Name = showthegap_table.LGA
-                 WHERE AgeRangeLow =".$lowagerange. " AND Indigenous !='".$indigenous."' AND
-                 PostcodeLga =" .$postcode. " AND Gender ='" .$gender."'";
+                 WHERE AgeRangeLow = :lowagerange AND Indigenous != :indigenous AND
+                 PostcodeLga = :postcode AND Gender = :gender";
 
 
   $db_host = 'localhost';
@@ -85,29 +85,32 @@ function govhackhacks_showresults(){
   $db_pwd = 'root';
   $db_name = 'vanilladrupal';
   // Please replace this by using drupal in-built db fucction call.
-  $con = mysql_connect($db_host,$db_username,$db_pwd);
-  if (!$con) {
-      die('Could not connect: ' . mysql_error());
-  }
-  mysql_select_db($db_name);
+  //$con = mysql_connect($db_host,$db_username,$db_pwd);
+  //if (!$con) {
+  //    die('Could not connect: ' . mysql_error());
+  //}
+  //mysql_select_db($db_name);
 
-  $result = mysql_query($sql,$con);
-  $answers = mysql_fetch_array($result);
+  //$result = mysql_query($sql,$con);
+  //$result = db_query($sql);
+  $answers = db_query($sql,array('lowagerange'=>$lowagerange,'indigenous'=>$indigenous,'postcode'=>$postcode, 'gender'=>$gender));
+  //$answers = mysql_fetch_array($result);
   $final_answers = array();
+  $final_answers = $answers->fetchObject();
 
   foreach($answers as $key => $value) {
       $final_answers[$key] = $value;
   }
-
-  mysql_close($con);
+drupal_set_message("<pre>".print_r($answers,TRUE)."</pre>");
+  //mysql_close($con);
 
   $markup .= '<div class="resultwrapper"><h2>How long have you got</h2>';
   $markup .= '<p>You\'re likely to live to the ripe old age of</p>';
   // content here
 
   $markup .= $final_answers['LifeExpectancy'];
+  //$markup .= $final_answers->LifeExpectancy;
   $markup .= '</div>';
-
 
   $markup .= '<div class="resultwrapper"><h2>Kicking the bucket</h2>';
   $markup .= '<p>What\'s likely to be your cause of death</p>';

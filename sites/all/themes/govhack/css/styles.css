@@ -2229,7 +2229,7 @@ a.calltoaction:hover,
 /* line 344, ../sass/styles.scss */
 .page-node .node-person {
   max-width: 480px;
-  margin: 0 auto;
+  margin: 10px auto;
 }
 /* line 348, ../sass/styles.scss */
 .page-node .group-middle {
