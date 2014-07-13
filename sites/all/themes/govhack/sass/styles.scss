@@ -308,6 +308,10 @@ a.calltoaction,
     }
   }
 }
+.field-name-indigenous-compare{
+  font-family: $amatic;
+  font-size: 22px;
+}
 .page-everyone{
   #main{
     background-color: $page-color;
@@ -315,6 +319,11 @@ a.calltoaction,
   #page-title{
     display: none;
   }
+}
+.view-header{
+  background-color: $footer-color;
+  text-align: center;
+  overflow: hidden;
 }
 .page-node{
   #page-title{
@@ -356,6 +365,11 @@ a.calltoaction,
     float: left;
     .field-name-field-gender{
       float: left;
+    }
+    h2{
+      font-size: 2.5em;
+      line-height: 1em;
+      margin: 0;
     }
   }
   .resultwrapper{

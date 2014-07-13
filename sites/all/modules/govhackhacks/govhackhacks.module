@@ -39,8 +39,8 @@ function govhackhacks_showresults(){
   $node = menu_get_object();
   $age = $node->field_age[LANGUAGE_NONE][0]['value'];
   $postcode = $node->field_postcode[LANGUAGE_NONE][0]['value'];
-  if ($node->field_gender[LANGUAGE_NONE][0]['tid'] == 1) $gender = 'M'; // hardcoded TIDs
-  if ($node->field_gender[LANGUAGE_NONE][0]['tid'] == 2) $gender = 'F';
+  if ($node->field_gender[LANGUAGE_NONE][0]['tid'] == 1) {$gender = 'M'; $gendertext = "male";}// hardcoded TIDs
+  if ($node->field_gender[LANGUAGE_NONE][0]['tid'] == 2) {$gender = 'F'; $gendertext = "female";}
   if ($node->field_indigenous[LANGUAGE_NONE][0]['value'] == 0) $indigenous = 'N';
   if ($node->field_indigenous[LANGUAGE_NONE][0]['value'] == 1) $indigenous = 'Y';
   // need to convert the postcode to LGA
@@ -92,6 +92,8 @@ function govhackhacks_showresults(){
 
   $final_answers = $answers->fetchObject();
   $your_final_answers = $your_answers->fetchObject();
+
+  $markup .= "<h1>As a $age year old $gendertext in $postcode</h1>";
 
   $markup .= '<div class="resultwrapper"><h2>How long have you got</h2>';
   $markup .= '<p>You\'re likely to live to the ripe old age of</p>';
@@ -147,6 +149,17 @@ function govhackhacks_showresults(){
   $markup .= $final_answers->TroublePolice;
   $markup .= '</div>';
 
+$markup .= 
+"<p>Now you know.  But now what, you ask?
+You’ve taken the first step in making a difference – you’ve put yourself in the picture.
+If more people know how big the Gap is, more people can get behind the efforts to close it.
+</p></p>
+Come back and recheck your Gap now and then. See what the data says, whether it is actually closing over time.
+</p><p>
+As we get more access to data, we can show you the progress over time. Whether it is local initiatives,  community action, where the government is putting its money, and HOW SUCCESSFUL those initiatives are, we now know what to keep an eye out for.
+</p><p>
+And now, so do you.
+</p>";
 
   return $markup;
 }
