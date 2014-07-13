@@ -93,10 +93,12 @@ function govhackhacks_showresults(){
   $final_answers = $answers->fetchObject();
   $your_final_answers = $your_answers->fetchObject();
   if ($gender === 'M') {
-      $opposite = 'Him :';
-  } else {
-      $opposite = 'Her :';
-  }
+       $opposite = 'Him :';
+       $else = 'He';
+   } else {
+       $opposite = 'Her :';
+       $else = 'She';
+   }
 
   $markup .= "<h1>As a $age year old $gendertext in $postcode</h1>";
 
@@ -122,13 +124,13 @@ function govhackhacks_showresults(){
   $markup .= '<p>Are you likely to be obese?</p>';
   // content here
 
-      $times = $your_final_answers->Overweight/$final_answers->Overweight;
-      $number_times = round($times,1);
-      if ($number_times > 5) {
-          $markup .= "You are $number_times % more likely to be obese </br> </br> than her/his </br>";
-      } else {
-          $markup .= "You two are almost the same </br>";
-      }
+       $times = $final_answers->Overweight/$your_final_answers->Overweight;
+       $number_times = round($times,1);
+       if (abs($number_times) > 2) {
+           $markup .= "$else is $number_times times more likely to be obese than you </br>";
+       } else {
+           $markup .= "You two are almost the same </br>";
+       }
 
   $markup .= 'You: '.$your_final_answers->Overweight . "</span>";
   $markup .= "$opposite ". $final_answers->Overweight;
@@ -138,6 +140,13 @@ function govhackhacks_showresults(){
   $markup .= '<div class="resultwrapper"><h2>Work, work, work</h2>';
   $markup .= '<p>Are you likely to be unemployed?</p>';
   // content here
+  $unemployed_times = $final_answers->NoJob/$your_final_answers->NoJob;
+      $unemployed_number_times = round($unemployed_times,1);
+      if (abs($unemployed_number_times) > 2) {
+          $markup .= "$else is $unemployed_number_times times more likely to be unemployed than you </br>";
+      } else {
+          $markup .= "You two are almost the same </br>";
+      }
   $markup .= '<span class="answeryou">You: '.$your_final_answers->NoJob . "</span>";
   $markup .= "$opposite ". $final_answers->NoJob;
   $markup .= '</div>';
