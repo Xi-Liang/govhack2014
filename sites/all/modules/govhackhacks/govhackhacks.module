@@ -93,10 +93,10 @@ function govhackhacks_showresults(){
   $final_answers = $answers->fetchObject();
   $your_final_answers = $your_answers->fetchObject();
   if ($gender === 'M') {
-       $opposite = 'Him :';
+       $opposite = 'Him';
        $else = 'He';
    } else {
-       $opposite = 'Her :';
+       $opposite = 'Her';
        $else = 'She';
    }
 
@@ -108,7 +108,7 @@ function govhackhacks_showresults(){
   $ages = round($your_final_answers->LifeExpectancy) - round($final_answers->LifeExpectancy);
   $agediff = abs($ages);
 
-  $markup .= "The gap is $agediff </br>";
+  $markup .= "The gap between you and $opposite is $agediff </br>";
   $markup .= '<span class="answeryou">You: '.round($your_final_answers->LifeExpectancy) . "</span>";
   $markup .= "$opposite ". round($final_answers->LifeExpectancy);
   $markup .= '</div>';
@@ -155,6 +155,14 @@ function govhackhacks_showresults(){
   $markup .= '<div class="resultwrapper"><h2>About that drink</h2>';
   $markup .= '<p>Are you at risk of being alcoholic?</p>';
   // content here
+
+   $HighRiskDrinker_times = $final_answers->HighRiskDrinker/$your_final_answers->HighRiskDrinker;
+      $HighRiskDrinker_number_times = round($HighRiskDrinker_times,1);
+      if (abs($HighRiskDrinker_number_times) > 2) {
+          $markup .= "$else is $HighRiskDrinker_number_times times more likely to be at risk of being alcoholic than you </br>";
+      } else {
+          $markup .= "You two are almost the same </br>";
+      }
   $markup .= '<span class="answeryou">You: '.$your_final_answers->HighRiskDrinker . "</span>";
   $markup .= "$opposite ".$final_answers->HighRiskDrinker;
   $markup .= '</div>';
@@ -163,6 +171,14 @@ function govhackhacks_showresults(){
   $markup .= '<div class="resultwrapper"><h2>What\'s bad for you</h2>';
   $markup .= '<p>Are you likely to have drug or alcohol problems?</p>';
   // content here
+
+  $AlcoholDrug_times = $final_answers->AlcoholDrug/$your_final_answers->AlcoholDrug;
+      $AlcoholDrug_number_times = round($AlcoholDrug_times,1);
+      if (abs($AlcoholDrug_number_times) > 2) {
+          $markup .= "$else is $AlcoholDrug_number_times times more likely to have drug or alcohol problems than you </br>";
+      } else {
+          $markup .= "You two are almost the same </br>";
+      }
   $markup .= '<span class="answeryou">You: '.$your_final_answers->AlcoholDrug . "</span>";
   $markup .= "$opposite ".$final_answers->AlcoholDrug;
   $markup .= '</div>';
@@ -171,6 +187,13 @@ function govhackhacks_showresults(){
   $markup .= '<div class="resultwrapper"><h2>Stay out of trouble</h2>';
   $markup .= '<p>Are you likely to be in trouble with the police?</p>';
   // content here
+  $TroublePolice_times = $final_answers->TroublePolice/$your_final_answers->TroublePolice;
+      $TroublePolice_number_times = round($TroublePolice_times,1);
+      if (abs($TroublePolice_times) > 2) {
+          $markup .= "$else is $TroublePolice_number_times times more likely to be in trouble with the police than you </br>";
+      } else {
+          $markup .= "You two are almost the same </br>";
+      }
   $markup .= '<span class="answeryou">You: '.$your_final_answers->TroublePolice . "</span>";
   $markup .= "$opposite ".$final_answers->TroublePolice;
   $markup .= '</div>';
