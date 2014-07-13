@@ -2344,22 +2344,38 @@ a.calltoaction:hover,
   /* line 438, ../sass/styles.scss */
   .form-item-field-gender-und .form-item input {
     margin-left: 10px;
+    min-width: 150px !important;
   }
 
-  /* line 441, ../sass/styles.scss */
+  /* line 442, ../sass/styles.scss */
+  #edit-field-postcode-und-0-value {
+    min-width: 150px;
+  }
+
+  /* line 445, ../sass/styles.scss */
+  #form-item-field-postcode-und-0-value {
+    min-width: 150px;
+  }
+
+  /* line 448, ../sass/styles.scss */
+  div#edit-field-postcode.form-field-type-number-integer.form-field-name-field-postcode.field-widget-number.form-wrapper {
+    min-width: 150px;
+  }
+
+  /* line 451, ../sass/styles.scss */
   .form-field-name-field-age, .form-field-name-field-postcode {
     margin-left: 5px;
     margin-right: 5px;
   }
 
-  /* line 445, ../sass/styles.scss */
+  /* line 455, ../sass/styles.scss */
   .page-node .group-left {
     border: none;
     padding: 0;
     margin-left: 5px;
   }
 
-  /* line 450, ../sass/styles.scss */
+  /* line 460, ../sass/styles.scss */
   .page-node .group-left {
     padding-top: 10px;
   }

@@ -107,14 +107,14 @@ function govhackhacks_showresults(){
   $agediff = abs($ages);
 
   $markup .= "The gap is $agediff </br>";
-  $markup .= 'You: '.round($your_final_answers->LifeExpectancy) . " </br> </br>";
+  $markup .= '<span class="answeryou">You: '.round($your_final_answers->LifeExpectancy) . "</span>";
   $markup .= "$opposite ". round($final_answers->LifeExpectancy);
   $markup .= '</div>';
 
   $markup .= '<div class="resultwrapper"><h2>Kicking the bucket</h2>';
   $markup .= '<p>What\'s likely to be your cause of death</p>';
   // content here
-  $markup .= 'You: '.$your_final_answers->CauseDeathOne . " </br> </br>";
+  $markup .= '<span class="answeryou">You: '.$your_final_answers->CauseDeathOne . "</span>";
   $markup .= "$opposite ". $final_answers->CauseDeathOne;
   $markup .= '</div>';
 
@@ -130,7 +130,7 @@ function govhackhacks_showresults(){
           $markup .= "You two are almost the same </br>";
       }
 
-  $markup .= 'You: '.$your_final_answers->Overweight . " </br> </br>";
+  $markup .= 'You: '.$your_final_answers->Overweight . "</span>";
   $markup .= "$opposite ". $final_answers->Overweight;
   $markup .= '</div>';
 
@@ -138,7 +138,7 @@ function govhackhacks_showresults(){
   $markup .= '<div class="resultwrapper"><h2>Work, work, work</h2>';
   $markup .= '<p>Are you likely to be unemployed?</p>';
   // content here
-  $markup .= 'You: '.$your_final_answers->NoJob . " </br> </br>";
+  $markup .= '<span class="answeryou">You: '.$your_final_answers->NoJob . "</span>";
   $markup .= "$opposite ". $final_answers->NoJob;
   $markup .= '</div>';
 
@@ -146,7 +146,7 @@ function govhackhacks_showresults(){
   $markup .= '<div class="resultwrapper"><h2>About that drink</h2>';
   $markup .= '<p>Are you at risk of being alcoholic?</p>';
   // content here
-  $markup .= 'You: '.$your_final_answers->HighRiskDrinker . " </br> </br>";
+  $markup .= '<span class="answeryou">You: '.$your_final_answers->HighRiskDrinker . "</span>";
   $markup .= "$opposite ".$final_answers->HighRiskDrinker;
   $markup .= '</div>';
 
@@ -154,7 +154,7 @@ function govhackhacks_showresults(){
   $markup .= '<div class="resultwrapper"><h2>What\'s bad for you</h2>';
   $markup .= '<p>Are you likely to have drug or alcohol problems?</p>';
   // content here
-  $markup .= 'You: '.$your_final_answers->AlcoholDrug . " </br> </br>";
+  $markup .= '<span class="answeryou">You: '.$your_final_answers->AlcoholDrug . "</span>";
   $markup .= "$opposite ".$final_answers->AlcoholDrug;
   $markup .= '</div>';
 
@@ -162,7 +162,7 @@ function govhackhacks_showresults(){
   $markup .= '<div class="resultwrapper"><h2>Stay out of trouble</h2>';
   $markup .= '<p>Are you likely to be in trouble with the police?</p>';
   // content here
-  $markup .= 'You: '.$your_final_answers->TroublePolice . " </br> </br>";
+  $markup .= '<span class="answeryou">You: '.$your_final_answers->TroublePolice . "</span>";
   $markup .= "$opposite ".$final_answers->TroublePolice;
   $markup .= '</div>';
 

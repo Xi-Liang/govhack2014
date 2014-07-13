@@ -437,6 +437,16 @@ a.calltoaction,
   }
   .form-item-field-gender-und .form-item input{
     margin-left: 10px;
+    min-width: 150px !important;
+  }
+  #edit-field-postcode-und-0-value{
+    min-width: 150px;
+  }
+  #form-item-field-postcode-und-0-value{
+    min-width: 150px;
+  }
+  div#edit-field-postcode.form-field-type-number-integer.form-field-name-field-postcode.field-widget-number.form-wrapper{
+    min-width: 150px;
   }
   .form-field-name-field-age, .form-field-name-field-postcode{
     margin-left: 5px;
