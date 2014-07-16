@@ -2281,6 +2281,8 @@ a.calltoaction:hover,
 /* line 385, ../sass/styles.scss */
 .page-node .resultwrapper {
   max-width: 480px;
+  min-height: 120px;
+  position: relative;
   background-color: white;
   border: 1px solid #e4e9ee;
   -webkit-border-radius: 5px;
@@ -2290,7 +2292,7 @@ a.calltoaction:hover,
   border-radius: 5px;
   margin: 20px auto;
 }
-/* line 391, ../sass/styles.scss */
+/* line 393, ../sass/styles.scss */
 .page-node .resultwrapper h2 {
   line-height: 1em;
   font-size: 26px;
@@ -2301,36 +2303,36 @@ a.calltoaction:hover,
   width: 160px;
   margin: -10px auto 10px auto;
 }
-/* line 401, ../sass/styles.scss */
+/* line 403, ../sass/styles.scss */
 .page-node .resultwrapper p {
   text-align: center;
   color: #8c8c8c;
-  margin: 10px 0;
+  margin: 10px 40px 60px 40px;
 }
 
 @media all and (max-width: 640px) {
-  /* line 409, ../sass/styles.scss */
+  /* line 411, ../sass/styles.scss */
   #page {
     background-color: white;
   }
 
-  /* line 422, ../sass/styles.scss */
+  /* line 424, ../sass/styles.scss */
   #person-node-form {
     border: none;
   }
 }
 @media all and (max-width: 480px) {
-  /* line 427, ../sass/styles.scss */
+  /* line 429, ../sass/styles.scss */
   .group-middle {
     display: none;
   }
 
-  /* line 430, ../sass/styles.scss */
+  /* line 432, ../sass/styles.scss */
   .group-right {
     float: right !important;
   }
 
-  /* line 433, ../sass/styles.scss */
+  /* line 435, ../sass/styles.scss */
   .resultwrapper {
     border: none !important;
     -webkit-border-radius: 0;
@@ -2341,42 +2343,69 @@ a.calltoaction:hover,
     padding-bottom: 10px;
   }
 
-  /* line 438, ../sass/styles.scss */
+  /* line 440, ../sass/styles.scss */
   .form-item-field-gender-und .form-item input {
     margin-left: 10px;
     min-width: 150px !important;
   }
 
-  /* line 442, ../sass/styles.scss */
+  /* line 444, ../sass/styles.scss */
   #edit-field-postcode-und-0-value {
     min-width: 150px;
   }
 
-  /* line 445, ../sass/styles.scss */
+  /* line 447, ../sass/styles.scss */
   #form-item-field-postcode-und-0-value {
     min-width: 150px;
   }
 
-  /* line 448, ../sass/styles.scss */
+  /* line 450, ../sass/styles.scss */
   div#edit-field-postcode.form-field-type-number-integer.form-field-name-field-postcode.field-widget-number.form-wrapper {
     min-width: 150px;
   }
 
-  /* line 451, ../sass/styles.scss */
+  /* line 453, ../sass/styles.scss */
   .form-field-name-field-age, .form-field-name-field-postcode {
     margin-left: 5px;
     margin-right: 5px;
   }
 
-  /* line 455, ../sass/styles.scss */
+  /* line 457, ../sass/styles.scss */
   .page-node .group-left {
     border: none;
     padding: 0;
     margin-left: 5px;
   }
 
-  /* line 460, ../sass/styles.scss */
+  /* line 462, ../sass/styles.scss */
   .page-node .group-left {
     padding-top: 10px;
   }
+}
+/* line 466, ../sass/styles.scss */
+.answeryou, .answerthem {
+  font-family: "Cabin Sketch", cursive;
+  font-size: 30px;
+  color: #0c4c8c;
+  margin: 20px;
+  display: block;
+  position: absolute;
+  bottom: 0;
+}
+
+/* line 475, ../sass/styles.scss */
+.answeryou {
+  left: 0;
+}
+
+/* line 478, ../sass/styles.scss */
+.answerthem {
+  right: 0;
+}
+
+/* line 481, ../sass/styles.scss */
+.thegap {
+  font-family: "Cabin Sketch", cursive;
+  font-size: 40px;
+  color: #ffb600;
 }

@@ -384,6 +384,8 @@ a.calltoaction,
   }
   .resultwrapper{
     max-width: 480px;
+    min-height: 120px;
+    position: relative;
     background-color: white;
     border: 1px solid $footer-color;
     @include border-radius(5px);
@@ -401,7 +403,7 @@ a.calltoaction,
     p{
       text-align: center;
       color: $darkgrey;
-      margin: 10px 0;
+      margin: 10px 40px 60px 40px;
     }
   }
 }
@@ -460,4 +462,24 @@ a.calltoaction,
   .page-node .group-left{
     padding-top: 10px;
   }
+}
+.answeryou, .answerthem{
+  font-family: $cabinsketch;
+  font-size: 30px;
+  color: $button-blue-hover;
+  margin: 20px;
+  display: block;
+  position: absolute;
+  bottom: 0;
+}
+.answeryou{
+  left: 0;
+}
+.answerthem{
+  right: 0;
+}
+.thegap{
+  font-family: $cabinsketch;
+  font-size: 40px;
+  color: $calltoaction;
 }

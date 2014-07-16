@@ -93,109 +93,111 @@ function govhackhacks_showresults(){
   $final_answers = $answers->fetchObject();
   $your_final_answers = $your_answers->fetchObject();
   if ($gender === 'M') {
-       $opposite = 'Him';
+       $opposite = 'him';
        $else = 'He';
    } else {
-       $opposite = 'Her';
+       $opposite = 'her';
        $else = 'She';
    }
 
   $markup .= "<h1>As a $age year old $gendertext in $postcode</h1>";
 
   $markup .= '<div class="resultwrapper"><h2>How long have you got</h2>';
-  $markup .= '<p>You\'re likely to live to the ripe old age of</p>';
 
   $ages = round($your_final_answers->LifeExpectancy) - round($final_answers->LifeExpectancy);
+  if ($ages < 0) $diffword = " less ";
+  else $diffword = " more ";
   $agediff = abs($ages);
 
-  $markup .= "The gap between you and $opposite is $agediff </br>";
-  $markup .= '<span class="answeryou">You: '.round($your_final_answers->LifeExpectancy) . "</span>";
-  $markup .= "$opposite ". round($final_answers->LifeExpectancy);
+
+  $markup .= "<p>You will live <span class=\"thegap\">$agediff</span> $diffword years than $opposite.</p>";
+  $markup .= '<span class="answeryou">'.round($your_final_answers->LifeExpectancy) . " years</span>";
+  $markup .= '<span class="answerthem">'.round($final_answers->LifeExpectancy) . " years</span>";
   $markup .= '</div>';
 
   $markup .= '<div class="resultwrapper"><h2>Kicking the bucket</h2>';
-  $markup .= '<p>What\'s likely to be your cause of death</p>';
+  $markup .= '<p>What\'s likely to be your cause of death?</p>';
   // content here
-  $markup .= '<span class="answeryou">You: '.$your_final_answers->CauseDeathOne . "</span>";
-  $markup .= "$opposite ". $final_answers->CauseDeathOne;
+  $markup .= '<span class="answeryou">you: '.$your_final_answers->CauseDeathOne . "</span>";
+  $markup .= '<span class="answerthem">'."$opposite: ". $final_answers->CauseDeathOne. "</span>";
   $markup .= '</div>';
 
   $markup .= '<div class="resultwrapper"><h2>Heavy news</h2>';
-  $markup .= '<p>Are you likely to be obese?</p>';
+  $markup .= '<p>What are your chances of being obese?</p>';
   // content here
 
        $times = $final_answers->Overweight/$your_final_answers->Overweight;
        $number_times = round($times,1);
        if (abs($number_times) > 2) {
-           $markup .= "$else is $number_times times more likely to be obese than you </br>";
+           //$markup .= "$else is $number_times times more likely to be obese than you </br>";
        } else {
-           $markup .= "You two are almost the same </br>";
+           //$markup .= "You two are almost the same </br>";
        }
 
-  $markup .= 'You: '.$your_final_answers->Overweight . "</span>";
-  $markup .= "$opposite ". $final_answers->Overweight;
+  $markup .= '<span class="answeryou">you: '.$your_final_answers->Overweight . "%</span>";
+  $markup .= '<span class="answerthem">'."$opposite: ". $final_answers->Overweight . "%</span>";
   $markup .= '</div>';
 
 
   $markup .= '<div class="resultwrapper"><h2>Work, work, work</h2>';
-  $markup .= '<p>Are you likely to be unemployed?</p>';
+  //$markup .= '<p>Are you likely to be unemployed?</p>';
   // content here
   $unemployed_times = $final_answers->NoJob/$your_final_answers->NoJob;
       $unemployed_number_times = round($unemployed_times,1);
       if (abs($unemployed_number_times) > 2) {
-          $markup .= "$else is $unemployed_number_times times more likely to be unemployed than you </br>";
+          $markup .= "<p>$else is <span class=\"thegap\">$unemployed_number_times x</span> more likely to be unemployed than you.</p>";
       } else {
-          $markup .= "You two are almost the same </br>";
+          $markup .= "<p>You have similar chances of being unemployed.</p>";
       }
-  $markup .= '<span class="answeryou">You: '.$your_final_answers->NoJob . "</span>";
-  $markup .= "$opposite ". $final_answers->NoJob;
+  $markup .= '<span class="answeryou">you: '.$your_final_answers->NoJob . "%</span>";
+  $markup .= '<span class="answerthem">'."$opposite: ". $final_answers->NoJob ."%</span>";
   $markup .= '</div>';
 
 
   $markup .= '<div class="resultwrapper"><h2>About that drink</h2>';
-  $markup .= '<p>Are you at risk of being alcoholic?</p>';
+  //$markup .= '<p>Are you at risk of being alcoholic?</p>';
   // content here
 
    $HighRiskDrinker_times = $final_answers->HighRiskDrinker/$your_final_answers->HighRiskDrinker;
       $HighRiskDrinker_number_times = round($HighRiskDrinker_times,1);
       if (abs($HighRiskDrinker_number_times) > 2) {
-          $markup .= "$else is $HighRiskDrinker_number_times times more likely to be at risk of being alcoholic than you </br>";
+          $markup .= "<p>$else is <span class=\"thegap\">$HighRiskDrinker_number_times x</span> more likely to be at risk of being alcoholic than you.</p>";
       } else {
-          $markup .= "You two are almost the same </br>";
+          $markup .= "<p>You have a similar risk of being alcoholic.</p>";
       }
-  $markup .= '<span class="answeryou">You: '.$your_final_answers->HighRiskDrinker . "</span>";
-  $markup .= "$opposite ".$final_answers->HighRiskDrinker;
+  $markup .= '<span class="answeryou">you: '.$your_final_answers->HighRiskDrinker . "%</span>";
+  $markup .= '<span class="answerthem">'."$opposite: ".$final_answers->HighRiskDrinker ."%</span>";
   $markup .= '</div>';
 
 
   $markup .= '<div class="resultwrapper"><h2>What\'s bad for you</h2>';
-  $markup .= '<p>Are you likely to have drug or alcohol problems?</p>';
+  //$markup .= '<p>Are you likely to have drug or alcohol problems?</p>';
   // content here
 
   $AlcoholDrug_times = $final_answers->AlcoholDrug/$your_final_answers->AlcoholDrug;
       $AlcoholDrug_number_times = round($AlcoholDrug_times,1);
       if (abs($AlcoholDrug_number_times) > 2) {
-          $markup .= "$else is $AlcoholDrug_number_times times more likely to have drug or alcohol problems than you </br>";
+          $markup .= "<p>$else is <span class=\"thegap\">$AlcoholDrug_number_times x</span> more likely to have drug or alcohol problems than you.</p>";
       } else {
-          $markup .= "You two are almost the same </br>";
+          $markup .= "<p>You have a similar risk of having drug or alcohol problems.</p>";
       }
-  $markup .= '<span class="answeryou">You: '.$your_final_answers->AlcoholDrug . "</span>";
-  $markup .= "$opposite ".$final_answers->AlcoholDrug;
+  $markup .= '<span class="answeryou">you: '.$your_final_answers->AlcoholDrug . "%</span>";
+  $markup .= '<span class="answerthem">'."$opposite: ".$final_answers->AlcoholDrug. "%</span>";
   $markup .= '</div>';
 
 
   $markup .= '<div class="resultwrapper"><h2>Stay out of trouble</h2>';
-  $markup .= '<p>Are you likely to be in trouble with the police?</p>';
+  //$markup .= '<p>Are you likely to be in trouble with the police?</p>';
   // content here
   $TroublePolice_times = $final_answers->TroublePolice/$your_final_answers->TroublePolice;
       $TroublePolice_number_times = round($TroublePolice_times,1);
       if (abs($TroublePolice_times) > 2) {
-          $markup .= "$else is $TroublePolice_number_times times more likely to be in trouble with the police than you </br>";
+          $markup .= "<p>$else is <span class=\"thegap\">$TroublePolice_number_times x</span> more likely to be in trouble with the police than you.</p>";
       } else {
-          $markup .= "You two are almost the same </br>";
+          $markup .= "<p>You have similar chances of being in trouble with the police.</p>";
       }
-  $markup .= '<span class="answeryou">You: '.$your_final_answers->TroublePolice . "</span>";
-  $markup .= "$opposite ".$final_answers->TroublePolice;
+  $markup .= '<span class="answeryou">you: '.$your_final_answers->TroublePolice . "%</span>";
+  $markup .= '<span class="answerthem">'."$opposite: ".$final_answers->TroublePolice. "%</span>";
   $markup .= '</div>';
 
 $markup .= 
