@@ -116,7 +116,7 @@ function govhackhacks_showresults(){
   $markup .= '</div>';
 
   $markup .= '<div class="resultwrapper"><h2>Kicking the bucket</h2>';
-  $markup .= '<p>What\'s likely to be your cause of death?</p>';
+  $markup .= '<p>What\'s the leading cause of death for your age?</p>';
   // content here
   $markup .= '<span class="answeryou">you: '.$your_final_answers->CauseDeathOne . "</span>";
   $markup .= '<span class="answerthem">'."$opposite: ". $final_answers->CauseDeathOne. "</span>";
