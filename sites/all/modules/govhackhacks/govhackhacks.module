@@ -100,6 +100,12 @@ function govhackhacks_showresults(){
        $else = 'She';
    }
 
+  if ((!isset($your_final_answers->LifeExpectancy)) || (!isset($final_answers->LifeExpectancy))) {
+      // The Postcode does not exist then sorry for this quick and dirty hacky (yet temporary) solution.
+      // Will remove this solution and handle the errors properly in drupal way asap as I feel dirty right now :(.
+      header('Location:  http://showthegap.org');
+  }
+
   $markup .= "<h1>As a $age year old $gendertext in $postcode</h1>";
 
   $markup .= '<div class="resultwrapper"><h2>How long have you got</h2>';
