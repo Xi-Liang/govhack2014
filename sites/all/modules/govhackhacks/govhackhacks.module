@@ -142,10 +142,15 @@ function govhackhacks_showresults(){
   $markup .= '<div class="resultwrapper"><h2>Work, work, work</h2>';
   //$markup .= '<p>Are you likely to be unemployed?</p>';
   // content here
+
   $unemployed_times = $final_answers->NoJob/$your_final_answers->NoJob;
-      $unemployed_number_times = round($unemployed_times,1);
-      if (abs($unemployed_number_times) > 2) {
+  $unemployed_number_times = round($unemployed_times,1);
+  $indi_unemployed_times = $your_final_answers->NoJob/$final_answers->NoJob;
+  $indi_unemployed_number_times = round($indi_unemployed_times,1);
+      if ((abs($unemployed_number_times) > 2) && ($indigenous === 'N')) {
           $markup .= "<p>$else is <span class=\"thegap\">$unemployed_number_times x</span> more likely to be unemployed than you.</p>";
+      } else if ((abs($indi_unemployed_number_times) > 2) && ($indigenous === 'Y')){
+          $markup .= "<p> You are <span class=\"thegap\">$indi_unemployed_number_times x</span> more likely to be unemployed than $opposite. </p>";
       } else {
           $markup .= "<p>You have similar chances of being unemployed.</p>";
       }
@@ -159,9 +164,13 @@ function govhackhacks_showresults(){
   // content here
 
    $HighRiskDrinker_times = $final_answers->HighRiskDrinker/$your_final_answers->HighRiskDrinker;
-      $HighRiskDrinker_number_times = round($HighRiskDrinker_times,1);
-      if (abs($HighRiskDrinker_number_times) > 2) {
+   $HighRiskDrinker_number_times = round($HighRiskDrinker_times,1);
+   $indi_HighRiskDrinker_times = $your_final_answers->HighRiskDrinker/$final_answers->HighRiskDrinker;
+   $indi_HighRiskDrinker_number_times = round($indi_HighRiskDrinker_times,1);
+      if ((abs($HighRiskDrinker_number_times) > 2) && ($indigenous === 'N')) {
           $markup .= "<p>$else is <span class=\"thegap\">$HighRiskDrinker_number_times x</span> more likely to be at risk of being alcoholic than you.</p>";
+      } else if ((abs($indi_HighRiskDrinker_number_times) > 2) && ($indigenous === 'Y')) {
+          $markup .= "<p> You are <span class=\"thegap\">$indi_HighRiskDrinker_number_times x</span> more likely to be at risk of being alcoholic than $opposite. </p>";
       } else {
           $markup .= "<p>You have a similar risk of being alcoholic.</p>";
       }
@@ -175,9 +184,13 @@ function govhackhacks_showresults(){
   // content here
 
   $AlcoholDrug_times = $final_answers->AlcoholDrug/$your_final_answers->AlcoholDrug;
-      $AlcoholDrug_number_times = round($AlcoholDrug_times,1);
-      if (abs($AlcoholDrug_number_times) > 2) {
+  $AlcoholDrug_number_times = round($AlcoholDrug_times,1);
+  $indi_AlcoholDrug_times = $your_final_answers->AlcoholDrug/$final_answers->AlcoholDrug;
+  $indi_AlcoholDrug_number_times = round($indi_AlcoholDrug_times,1);
+      if ((abs($AlcoholDrug_number_times) > 2) && ($indigenous === 'N')) {
           $markup .= "<p>$else is <span class=\"thegap\">$AlcoholDrug_number_times x</span> more likely to have drug or alcohol problems than you.</p>";
+      } else if ((abs($indi_AlcoholDrug_number_times) > 2) && ($indigenous === 'Y')) {
+          $markup .= "<p> You are <span class=\"thegap\">$indi_AlcoholDrug_number_times x</span> more likely to have drug or alcohol problems than $opposite. </p>";
       } else {
           $markup .= "<p>You have a similar risk of having drug or alcohol problems.</p>";
       }
@@ -190,9 +203,13 @@ function govhackhacks_showresults(){
   //$markup .= '<p>Are you likely to be in trouble with the police?</p>';
   // content here
   $TroublePolice_times = $final_answers->TroublePolice/$your_final_answers->TroublePolice;
-      $TroublePolice_number_times = round($TroublePolice_times,1);
-      if (abs($TroublePolice_times) > 2) {
+  $TroublePolice_number_times = round($TroublePolice_times,1);
+  $indi_TroublePolice_times = $your_final_answers->TroublePolice/$final_answers->TroublePolice;
+  $indi_TroublePolice_number_times = round($indi_TroublePolice_times,1);
+      if ((abs($TroublePolice_number_times)) > 2 && ($indigenous === 'N')) {
           $markup .= "<p>$else is <span class=\"thegap\">$TroublePolice_number_times x</span> more likely to be in trouble with the police than you.</p>";
+      } else if ((abs($indi_TroublePolice_number_times)) > 2 && ($indigenous === 'Y')) {
+          $markup .= "<p> You are <span class=\"thegap\">$indi_TroublePolice_number_times x</span> more likely to be in trouble with the police than $opposite. </p>";
       } else {
           $markup .= "<p>You have similar chances of being in trouble with the police.</p>";
       }
